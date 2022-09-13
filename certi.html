@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Parshva's Resume</title>
+	<link rel="icon" href="./logos/title_icons.png">
+	<link rel="stylesheet" href="certi_style.css">
+	<script type="text/javascript">
+		
+		function showImage(elem,ch) {
+			
+			
+			if(ch==='1'){
+				document.getElementById("p1").innerHTML="Institute Name : Shree Swaminarayan Gurukul .";
+				document.getElementById("p2").innerHTML="Passing Year : 2014-2015";
+				document.getElementById("p3").innerHTML="Location : Bhavnagar, Gujarat .";
+				document.getElementById("p4").innerHTML="Update : Completed :)";
+				document.getElementById("display-frame").src = elem.nextElementSibling.src;
+			}
+			if(ch==='2'){
+				document.getElementById("p1").innerHTML="Institute Name : Gyanmanjari Vidhyapith .";
+				document.getElementById("p2").innerHTML="Passing Year : 2015-2017";
+				document.getElementById("p3").innerHTML="Location : Bhavnagar, Gujarat .";
+				document.getElementById("p4").innerHTML="Update : Completed :)";
+				document.getElementById("display-frame").src = elem.nextElementSibling.src;
+			}
+			if(ch==='3'){
+				document.getElementById("p1").innerHTML="Institute Name : Shantilal Shah Engineering College.";
+				document.getElementById("p2").innerHTML="Passing Year : 2017-2021";
+				document.getElementById("p3").innerHTML="Location : Sidsar, Gujarat .";
+				document.getElementById("p4").innerHTML="Update : Completed :)";
+				document.getElementById("display-frame").src = elem.nextElementSibling.src;
+			}
+			if(ch==='4'){
+				document.getElementById("p1").innerHTML="";
+				document.getElementById("p2").innerHTML="";
+				document.getElementById("p3").innerHTML="";
+				document.getElementById("p4").innerHTML="";
+			}
+		}
+		
+    </script>
+</head>
+
+<body>
+	<div class="box">
+		<h1 style="font-family:consolas;position:absolute;top:10px; left:140px;">My Academics</h1>
+		<div class="item1" ><img id="display-frame" src="images\certi_img.png"/></div>
+		
+		<div ><input  class="item2" type="button" value="SSC Results" onclick="showImage(this,'1');"/>
+		<img id="1" src="images\10thresult_4.png" style="display:none">
+		</div>
+		
+		<div ><input class="item3" type="button" value="HSC Results" onclick="showImage(this,'2');"/>
+		<img id="2" src="images\11-12thresult.png" style="display:none">
+		</div>
+		
+		<div ><input class="item4" type="button" value="BE Results" onclick="showImage(this,'3');"/>
+		<img id="3" src="images\college.png" style="display:none;">
+		</div>
+		
+		<div ><a href="achive.html"><button class="item6">Certificates & Achivements</button></a>
+		</div>
+		
+		<div class="item5">
+			<div><p id="p1" style="position:absolute; top:10px; left:10px;">Institute Name :__________________</p></div>
+			<div><p id="p2" style="position:absolute; bottom:10px; left:10px;">Passing Year :__________________</p></div>
+			<div><p id="p3" style="position:absolute; top:10px; right:10px;">Location :__________________</p></div>
+			<div><p id="p4" style="position:absolute; bottom:10px; right:10px;">Update :__________________</p></div>
+			
+		</div>
+		
+	</div>
+	<center>
+		<button style="width:80px;position:relative;top:-30px;background-color:transparent;color:white;height:28px;" onclick="location.href='index.html'" type="button">Home</button>
+	</center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

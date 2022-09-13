@@ -1,0 +1,115 @@
+@import url(‘https://fonts.googleapis.com/css?family=Montserrat’);
+body {
+	font-family: consolas;
+	background-color: #000;
+	color: white;
+}
+.box{
+	width: 1200px;
+	height: 520px;
+	border: 2px solid white;
+	margin: 40px auto;
+	position: relative;
+}
+.item1{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.item9{
+	position:absolute;
+	bottom:20px;
+	left:510px;
+	width:140px;
+	height:90px;
+	color:white;
+	text-decoration:none;
+}
+.item2{
+	position:absolute;
+	bottom:15px;
+	left:50px;
+	width:140px;
+	height:90px;
+	color:white;
+	text-decoration:none;
+}
+.item3{
+	position:absolute;
+	bottom:15px;
+	left:240px;
+	width:200px;
+	height:90px;
+	color:white;
+	text-decoration:none;
+}
+.item4{
+	position:absolute;
+	bottom:10px;
+	right:270px;
+	width:200px;
+	height:90px;
+	color:white;
+}
+.item5{
+	position:absolute;
+	bottom:6px;
+	right:25px;
+	width:200px;
+	height:90px;
+	color:white;
+}
+.item6{
+	position:absolute;
+	bottom:150px;
+	left:200px;
+	width:200px;
+	height:200px;
+	font-family:consolas;
+	font-size:20px;
+	color: white;
+}
+.item7{
+	position:absolute;
+	bottom:137px;
+	left:480px;
+	width:200px;
+	height:200px;
+	font-family:consolas;
+	font-size:20px;
+	color: white;
+}
+.item8{
+	position:absolute;
+	bottom:137px;
+	right:200px;
+	width:200px;
+	height:200px;
+	font-family:consolas;
+	font-size:20px;
+	color: white;
+}
+h3{
+	position: absolute;
+	font-family:consolas;
+	font-size:17px;
+	top: 100px;
+	left:250px;
+	animation: type 6s steps(830);
+	overflow:hidden;
+	white-space:nowrap;
+	border-right:4px solid white;
+	width:83ch;
+}
+@keyframes type{
+	0% {
+		width:0ch;
+	}
+	100% {
+		width: 85ch;
+	}
+}
+
+button{
+	cursor: pointer;
+}

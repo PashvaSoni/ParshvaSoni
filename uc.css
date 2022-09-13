@@ -1,0 +1,13 @@
+@import url(‘https://fonts.googleapis.com/css?family=Montserrat’);
+body {
+	font-family: consolas;
+	background-color: #000;
+	color: white;
+}
+.box{
+	width: 1200px;
+	height: 520px;
+	border: 2px solid white;
+	margin: 40px auto;
+	position: relative;
+}

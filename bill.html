@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Parshva's Resume</title>
+	<link rel="icon" href="./logos/title_icons.png">
+	<link rel="stylesheet" href="bill_style.css">
+	<script>
+		var count=0,max=5;
+		function change(){
+			var img=document.getElementById('im');
+			if(count===0)
+			{
+				var tar=document.getElementById('log');
+				img.src=tar.src;
+				img.style="width:250px; height:330px; left:262px; top:105px; position:absolute;";
+			}
+			if(count===1)
+			{
+				var tar=document.getElementById('exp');
+				img.src=tar.src;
+				img.style="width:520px; height:330px; left:120px; top:105px; position:absolute;";
+			}
+			if(count===2)
+			{
+				var tar=document.getElementById('new');
+				img.src=tar.src;
+				img.style="width:520px; height:330px; left:120px; top:105px; position:absolute;";
+			}
+			if(count===3)
+			{
+				var tar=document.getElementById('old');
+				img.src=tar.src;
+				img.style="width:520px; height:330px; left:120px; top:105px; position:absolute;";
+			}
+			if(count===4)
+			{
+				var tar=document.getElementById('alz');
+				img.src=tar.src;
+				img.style="width:520px; height:330px; left:120px; top:105px; position:absolute;";
+			}
+			count++;
+			if(count===5){
+				count=0;
+			}
+			setTimeout(change,1000);
+		}
+	</script>
+</head>
+<body onload="change()">
+	<div class="box">
+		<center><h1 style="font-family:consolas">Bill Generator & Sales Analysis</h1></center>
+		<img id="log" src="images\login.png" style="display:none;">
+		<img id="exp" src="images\explore.png" style="display:none;">
+		<img id="new" src="images\new_entry.png" style="display:none;">
+		<img id="old" src="images\old_entry.png" style="display:none;">
+		<img id="alz" src="images\analyze.png" style="display:none;">
+		
+		<img id="im" src="images\bill.png" style="width:280px; height:280px; left:240px; top:132px;position:absolute;"></img>
+		
+		<img id="img" src="images\computer.png" style="width:750px; height:450px; position:relative; top:30px;left:5px; ">
+		<div class="item1">
+			
+			<center><p>This project is implemented using C#.NET and the reason for creating this software was my uncle required a Jwellery Data storing software which can take input and generate bill from the input . This input is stored in database and can later be used for analysis of sales. So main task of this software are :<br>1) Bill Generation .<br> 2) Sales Analysis .</p></center>
+		</div>
+		
+		<a id="b2" href="https://github.com/ParshvaSoni/Bill-Generator-And-Sales-Analysis"><button id="btn" style="position: absolute; font-size:17px;color:white; padding:5px; width:90px;right:200px;bottom:100px;background-color:black; border:1px solid white;">Visit<button></a>	
+	</div>
+	<center>
+		<button style="width:80px;position:relative;top:-30px;background-color:transparent;color:white;height:28px;" onclick="location.href='index.html'" type="button">Home</button>
+	</center>
+</body>
+</head>

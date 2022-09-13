@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parshva's Resume</title>
+    <link rel="stylesheet" href="api_style.css">
+    <link rel="icon" href="./logos/title_icons.png">
+    <script>
+        const api_data = {
+            users: {
+                description: "This routes contains user related data. Following are some hit-points :",
+                path: '/users',
+                options: [
+                    {
+                        name: 'Create New User',
+                        endpoint: '/signup',
+                        method: 'Post',
+                        req_data: {
+                            "name": "Test_User",
+                            "phonenumber": "9999999999",
+                            "password": "User@123",
+                            "dob": "2022-05-11",
+                            "email": "testuser@example.com"
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "User Created Successfully.",
+                            "data": {
+                                "name": "test_user",
+                                "email": "testuser@example.com",
+                                "phonenumber": "9999999999",
+                                "dob": "2022-05-11T00:00:00.000Z",
+                                "password": "$2b$12$RrZvk683rL8rVIBnc7roeuLCzmQomDXxMp5poPFcveHuzO7.uMxjm",
+                                "likedproducts": [],
+                                "wishlistedproducts": [],
+                                "dislikedproducts": [],
+                                "registrationdate": "2022-09-12T15:15:20.380Z",
+                                "orders": [],
+                                "_id": "631f4d1ede93f2ef561dc30e",
+                                "createdAt": "2022-09-12T15:15:42.727Z",
+                                "updatedAt": "2022-09-12T15:15:42.727Z",
+                                "__v": 0
+                            }
+                        }
+                    },
+                    {
+                        name: 'Login',
+                        endpoint: '/signin',
+                        method: 'POST',
+                        req_data: {
+                            "phonenumber": "9999999999",
+                            "password": "User@123"
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "User Authenticated",
+                            "data": {}
+                        }
+                    },
+                    {
+                        name: 'Send OTP',
+                        endpoint: '/signin/sendOTP',
+                        method: 'POST',
+                        req_data: {
+                            "phonenumber": "9999999999"
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Found user",
+                            "data": {
+                                "otphash": "541f4887840ebd550b0206f19adf51136cd45bcda4daf2dac8fb4f8d91567780.1662996224042"
+                            }
+                        }
+                    },
+                    {
+                        name: 'Verify OTP',
+                        endpoint: '/signin/verifyOTP',
+                        method: 'POST',
+                        req_data: {
+                            "phonenumber": "9999999999",
+                            "otphash": "99b2a00beb29cce574d1a3420f2ac349f94394ef60bd205b01c564647d9078c6.1662996305555",
+                            "otp": "788294"
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "User Authenticated",
+                            "data": {
+                            }
+                        }
+                    },
+                    {
+                        name: 'Logout',
+                        endpoint: '/logout',
+                        method: 'POST',
+                        req_data: {
+
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "User Logged Out Successfully",
+                            "data": {
+                            }
+                        }
+                    }
+                ]
+            },
+            products: {
+                description: "This routes returns array of products as response based on search params. Following are some hit-points :",
+                path: '/products',
+                options: [
+                    {
+                        name: 'Create New Product',
+                        endpoint: '/new',
+                        method: 'POST',
+                        req_data: {
+                            "name": "Regal 24 Karat Yellow Gold And Pearl Scrolled Pendant",
+                            "description": "This elegant 18 Karat yellow gold pendant features a single pearl ringed by a ridged band and 4 pearls, with 4 scrolled pearl-set gold crowns",
+                            "imageurl": ["https://staticimg.titan.co.in/Tanishq/Catalog/513016DEIAGA00_1.jpg"],
+                            "targetgender": "women",
+                            "metal": "gold",
+                            "metalweight": 4.787,
+                            "grossweight": 5.163,
+                            "metalpurity": "18KT",
+                            "makingcharge": 5445.00,
+                            "category": "62921beef078d7dd2cb92cf4",
+                            "class": ["6295f8f6a6d9110b950e0294", "6295f9aaa6d9110b950e0298"],
+                            "occasion": ["6295f442a6d9110b950e028b", "6295f45ba6d9110b950e028d"]
+
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Product created successfully.",
+                            "data": {
+                                "name": "regal 24 karat yellow gold and pearl scrolled pendant",
+                                "description": "this elegant 18 karat yellow gold pendant features a single pearl ringed by a ridged band and 4 pearls, with 4 scrolled pearl-set gold crowns",
+                                "imageurl": [
+                                    "https://staticimg.titan.co.in/Tanishq/Catalog/513016DEIAGA00_1.jpg"
+                                ],
+                                "likes": 0,
+                                "dislikes": 0,
+                                "popularity": 0,
+                                "targetgender": "women",
+                                "registrationdate": "2022-09-12T20:15:53.000Z",
+                                "metal": "gold",
+                                "metalweight": 4.787,
+                                "grossweight": 5.163,
+                                "metalpurity": "18KT",
+                                "makingcharge": 5445,
+                                "category": "62921beef078d7dd2cb92cf4",
+                                "class": [
+                                    "6295f8f6a6d9110b950e0294",
+                                    "6295f9aaa6d9110b950e0298"
+                                ],
+                                "occasion": [
+                                    "6295f442a6d9110b950e028b",
+                                    "6295f45ba6d9110b950e028d"
+                                ],
+                                "_id": "631f9379521d47144acbb31d",
+                                "createdAt": "2022-09-12T20:15:53.591Z",
+                                "updatedAt": "2022-09-12T20:15:53.591Z",
+                                "__v": 0
+                            }
+                        }
+                    },
+                    {
+                        name: 'Get All Products',
+                        endpoint: '/all',
+                        method: 'GET',
+                        req_data: {
+
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Products Retrieved Successfully.",
+                            "data": {
+                                "totalDocs": 6,
+                                "nextPage": null,
+                                "previousPage": null,
+                                "results": [
+                                    {
+                                        "_id": "629a51509a5a7753977ce0e7",
+                                        "name": "Traditional Bengali Red And Gold Bangle With Floral Work",
+                                        "description": "Alluring Red and Gold Traditional Bengali Pola Bangle. Crafted in 22 Karat High Polish Yellow Gold, the traditional accessory is an ideal daily wear",
+                                        "imageurl": [
+                                            "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+                                            "https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg"
+                                        ],
+                                        "likes": 9,
+                                        "dislikes": 3,
+                                        "popularity": 9,
+                                        "targetgender": "women",
+                                        "registrationdate": "2022-06-03T18:22:08.000Z",
+                                        "metal": "gold",
+                                        "metalweight": 12.25,
+                                        "grossweight": 123454,
+                                        "metalpurity": "18KT",
+                                        "makingcharge": 123.5,
+                                        "category": {
+                                            "_id": "62921c7cf078d7dd2cb92d02",
+                                            "name": "bangles",
+                                            "__v": 0
+                                        },
+                                        "class": [
+                                            {
+                                                "_id": "6295f8f6a6d9110b950e0294",
+                                                "name": "1st class",
+                                                "__v": 0
+                                            },
+                                            {
+                                                "_id": "6295f99fa6d9110b950e0296",
+                                                "name": "2nd class",
+                                                "__v": 0
+                                            }
+                                        ],
+                                        "occasion": [
+                                            {
+                                                "_id": "6295f402a6d9110b950e0287",
+                                                "name": "everyday",
+                                                "__v": 0
+                                            },
+                                            {
+                                                "_id": "6295f433a6d9110b950e0289",
+                                                "name": "marriage function's",
+                                                "__v": 0
+                                            }
+                                        ],
+                                        "__v": 0
+                                    },
+                                    {
+                                        "_id": "629a523f9a5a7753977ce0ec",
+                                        "name": "Stylised Rawa Work Teardrop Gold Drop Earrings",
+                                        "description": "Add a splash of subtle glamour to your look with this contemporary pair of drop earrings crafted in 22 Karat Yellow Gold featuring a sandblast finish.",
+                                        "imageurl": [
+                                            "https://staticimg.titan.co.in/Tanishq/Catalog/513016DEIAGA00_1.jpg"
+                                        ],
+                                        "likes": 0,
+                                        "dislikes": 0,
+                                        "popularity": 0,
+                                        "targetgender": "women",
+                                        "registrationdate": "2022-06-03T18:26:07.000Z",
+                                        "metal": "gold",
+                                        "metalweight": 2.786,
+                                        "grossweight": 2.786,
+                                        "metalpurity": "22KT",
+                                        "makingcharge": 3750.3,
+                                        "category": {
+                                            "_id": "62921bdff078d7dd2cb92cf2",
+                                            "name": "earrings",
+                                            "__v": 0
+                                        },
+                                        "class": [
+                                            {
+                                                "_id": "6295f99fa6d9110b950e0296",
+                                                "name": "2nd class",
+                                                "__v": 0
+                                            },
+                                            {
+                                                "_id": "6295f9aaa6d9110b950e0298",
+                                                "name": "3rd class",
+                                                "__v": 0
+                                            }
+                                        ],
+                                        "occasion": [
+                                            {
+                                                "_id": "6295f402a6d9110b950e0287",
+                                                "name": "everyday",
+                                                "__v": 0
+                                            },
+                                            {
+                                                "_id": "6295f45ba6d9110b950e028d",
+                                                "name": "diwali day's",
+                                                "__v": 0
+                                            }
+                                        ],
+                                        "__v": 0
+                                    },
+                                    {
+                                        "_id": "629a52c89a5a7753977ce0f1",
+                                        "name": "Regal 18 Karat Yellow Gold And Pearl Scrolled Pendant",
+                                        "description": "This elegant 18 Karat yellow gold pendant features a single pearl ringed by a ridged band and 4 pearls, with 4 scrolled pearl-set gold crowns",
+                                        "imageurl": [
+                                            "https://staticimg.titan.co.in/Tanishq/Catalog/513016DEIAGA00_1.jpg"
+                                        ],
+                                        "likes": 0,
+                                        "dislikes": 0,
+                                        "popularity": 0,
+                                        "targetgender": "women",
+                                        "registrationdate": "2022-06-03T18:28:24.000Z",
+                                        "metal": "gold",
+                                        "metalweight": 4.787,
+                                        "grossweight": 5.163,
+                                        "metalpurity": "18KT",
+                                        "makingcharge": 5445,
+                                        "category": {
+                                            "_id": "62921beef078d7dd2cb92cf4",
+                                            "name": "pendants",
+                                            "__v": 0
+                                        },
+                                        "class": [
+                                            {
+                                                "_id": "6295f8f6a6d9110b950e0294",
+                                                "name": "1st class",
+                                                "__v": 0
+                                            },
+                                            {
+                                                "_id": "6295f9aaa6d9110b950e0298",
+                                                "name": "3rd class",
+                                                "__v": 0
+                                            }
+                                        ],
+                                        "occasion": [
+                                            {
+                                                "_id": "6295f442a6d9110b950e028b",
+                                                "name": "family function's",
+                                                "__v": 0
+                                            },
+                                            {
+                                                "_id": "6295f45ba6d9110b950e028d",
+                                                "name": "diwali day's",
+                                                "__v": 0
+                                            }
+                                        ],
+                                        "__v": 0
+                                    },
+                                    {
+                                        "_id": "62a0dde62826372115359dbe",
+                                        "name": "regal 18 karat yellow gold and pearl scrolled pendant",
+                                        "description": "this elegant 18 karat yellow gold pendant features a single pearl ringed by a ridged band and 4 pearls, with 4 scrolled pearl-set gold crowns",
+                                        "imageurl": [
+                                            "https://staticimg.titan.co.in/Tanishq/Catalog/513016DEIAGA00_1.jpg"
+                                        ],
+                                        "likes": 0,
+                                        "dislikes": 0,
+                                        "popularity": 0,
+                                        "targetgender": "women",
+                                        "registrationdate": "2022-06-08T17:35:34.000Z",
+                                        "metal": "gold",
+                                        "metalweight": 4.787,
+                                        "grossweight": 5.163,
+                                        "metalpurity": "18KT",
+                                        "makingcharge": 5445,
+                                        "category": {
+                                            "_id": "62921beef078d7dd2cb92cf4",
+                                            "name": "pendants",
+                                            "__v": 0
+                                        },
+                                        "class": [
+                                            {
+                                                "_id": "6295f8f6a6d9110b950e0294",
+                                                "name": "1st class",
+                                                "__v": 0
+                                            },
+                                            {
+                                                "_id": "6295f9aaa6d9110b950e0298",
+                                                "name": "3rd class",
+                                                "__v": 0
+                                            }
+                                        ],
+                                        "occasion": [
+                                            {
+                                                "_id": "6295f442a6d9110b950e028b",
+                                                "name": "family function's",
+                                                "__v": 0
+                                            },
+                                            {
+                                                "_id": "6295f45ba6d9110b950e028d",
+                                                "name": "diwali day's",
+                                                "__v": 0
+                                            }
+                                        ],
+                                        "__v": 0
+                                    },
+                                    {
+                                        "_id": "62c2bcb8bb801ea894f9bcb1",
+                                        "name": "regal 22 karat yellow gold and pearl scrolled pendant",
+                                        "description": "this elegant 18 karat yellow gold pendant features a single pearl ringed by a ridged band and 4 pearls, with 4 scrolled pearl-set gold crowns",
+                                        "imageurl": [
+                                            "https://staticimg.titan.co.in/Tanishq/Catalog/513016DEIAGA00_1.jpg"
+                                        ],
+                                        "likes": 0,
+                                        "dislikes": 0,
+                                        "popularity": 0,
+                                        "targetgender": "women",
+                                        "registrationdate": "2022-07-04T10:11:04.000Z",
+                                        "metal": "gold",
+                                        "metalweight": 4.787,
+                                        "grossweight": 5.163,
+                                        "metalpurity": "18KT",
+                                        "makingcharge": 5445,
+                                        "category": {
+                                            "_id": "62921beef078d7dd2cb92cf4",
+                                            "name": "pendants",
+                                            "__v": 0
+                                        },
+                                        "class": [
+                                            {
+                                                "_id": "6295f8f6a6d9110b950e0294",
+                                                "name": "1st class",
+                                                "__v": 0
+                                            },
+                                            {
+                                                "_id": "6295f9aaa6d9110b950e0298",
+                                                "name": "3rd class",
+                                                "__v": 0
+                                            }
+                                        ],
+                                        "occasion": [
+                                            {
+                                                "_id": "6295f442a6d9110b950e028b",
+                                                "name": "family function's",
+                                                "__v": 0
+                                            },
+                                            {
+                                                "_id": "6295f45ba6d9110b950e028d",
+                                                "name": "diwali day's",
+                                                "__v": 0
+                                            }
+                                        ],
+                                        "createdAt": "2022-07-04T10:11:04.582Z",
+                                        "updatedAt": "2022-07-04T10:11:04.582Z",
+                                        "__v": 0
+                                    },
+                                    {
+                                        "_id": "631f9379521d47144acbb31d",
+                                        "name": "regal 24 karat yellow gold and pearl scrolled pendant",
+                                        "description": "this elegant 18 karat yellow gold pendant features a single pearl ringed by a ridged band and 4 pearls, with 4 scrolled pearl-set gold crowns",
+                                        "imageurl": [
+                                            "https://staticimg.titan.co.in/Tanishq/Catalog/513016DEIAGA00_1.jpg"
+                                        ],
+                                        "likes": 0,
+                                        "dislikes": 0,
+                                        "popularity": 0,
+                                        "targetgender": "women",
+                                        "registrationdate": "2022-09-12T20:15:53.000Z",
+                                        "metal": "gold",
+                                        "metalweight": 4.787,
+                                        "grossweight": 5.163,
+                                        "metalpurity": "18KT",
+                                        "makingcharge": 5445,
+                                        "category": {
+                                            "_id": "62921beef078d7dd2cb92cf4",
+                                            "name": "pendants",
+                                            "__v": 0
+                                        },
+                                        "class": [
+                                            {
+                                                "_id": "6295f8f6a6d9110b950e0294",
+                                                "name": "1st class",
+                                                "__v": 0
+                                            },
+                                            {
+                                                "_id": "6295f9aaa6d9110b950e0298",
+                                                "name": "3rd class",
+                                                "__v": 0
+                                            }
+                                        ],
+                                        "occasion": [
+                                            {
+                                                "_id": "6295f442a6d9110b950e028b",
+                                                "name": "family function's",
+                                                "__v": 0
+                                            },
+                                            {
+                                                "_id": "6295f45ba6d9110b950e028d",
+                                                "name": "diwali day's",
+                                                "__v": 0
+                                            }
+                                        ],
+                                        "createdAt": "2022-09-12T20:15:53.591Z",
+                                        "updatedAt": "2022-09-12T20:15:53.591Z",
+                                        "__v": 0
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        name: 'Update Product',
+                        endpoint: '/629a52c89a5a7753977ce0f1',
+                        method: 'PATCH',
+                        req_data: {
+                            "name": "Regal 18 Karat Yellow Gold And Pearl Scrolled Pendant",
+                            "description": "This elegant 18 Karat yellow gold pendant features a single pearl ringed by a ridged band and 4 pearls, with 4 scrolled pearl-set gold crowns",
+                            "imageurl": ["https://staticimg.titan.co.in/Tanishq/Catalog/513016DEIAGA00_1.jpg"],
+                            "targetgender": "women",
+                            "metal": "gold",
+                            "metalweight": 4.787,
+                            "grossweight": 5.163,
+                            "metalpurity": "18KT",
+                            "makingcharge": 5445.00,
+                            "category": "62921beef078d7dd2cb92cf4",
+                            "class": ["6295f8f6a6d9110b950e0294", "6295f9aaa6d9110b950e0298"],
+                            "occasion": ["6295f442a6d9110b950e028b", "6295f45ba6d9110b950e028d"]
+
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Product Updated successfully.",
+                            "data": {
+                                "_id": "629a52c89a5a7753977ce0f1",
+                                "name": "regal 18 karat orange gold and pearl scrolled pendant",
+                                "description": "this elegant 18 karat yellow gold pendant features a single pearl ringed by a ridged band and 4 pearls, with 4 scrolled pearl-set gold crowns",
+                                "imageurl": [
+                                    "https://staticimg.titan.co.in/Tanishq/Catalog/513016DEIAGA00_1.jpg"
+                                ],
+                                "likes": 0,
+                                "dislikes": 0,
+                                "popularity": 0,
+                                "targetgender": "women",
+                                "registrationdate": "2022-06-03T18:28:24.000Z",
+                                "metal": "gold",
+                                "metalweight": 4.787,
+                                "grossweight": 5.163,
+                                "metalpurity": "18KT",
+                                "makingcharge": 5445,
+                                "category": "62921beef078d7dd2cb92cf4",
+                                "class": [
+                                    "6295f8f6a6d9110b950e0294",
+                                    "6295f9aaa6d9110b950e0298"
+                                ],
+                                "occasion": [
+                                    "6295f442a6d9110b950e028b",
+                                    "6295f45ba6d9110b950e028d"
+                                ],
+                                "__v": 0,
+                                "updatedAt": "2022-09-13T07:04:05.740Z"
+                            }
+                        }
+                    },
+                    {
+                        name: 'Delete Product',
+                        endpoint: '/629a52c89a5a7753977ce0f1',
+                        method: 'DELETE',
+                        req_data: {
+
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Product deleted successfully.",
+                            "data": null
+                        }
+                    },
+                    {
+                        name: 'Increase Likes',
+                        endpoint: '/l/629a51509a5a7753977ce0e7',
+                        method: 'PUT',
+                        req_data: {
+
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Product Updated successfully.",
+                            "data": null
+                        }
+                    },
+                    {
+                        name: 'Increase Dislikes',
+                        endpoint: '/d/629a51509a5a7753977ce0e7',
+                        method: 'PUT',
+                        req_data: {
+
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Product Updated successfully.",
+                            "data": null
+                        }
+                    },
+                    {
+                        name: 'Increase Popularity',
+                        endpoint: '/p/629a51509a5a7753977ce0e7',
+                        method: 'PUT',
+                        req_data: {
+
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Product Updated successfully.",
+                            "data": null
+                        }
+                    },
+                ],
+
+            },
+            offers: {
+                description: "This routes contains all data related offers created by admin. Following are some hit-points to hit.",
+                path: "/offers",
+                options: [
+                    {
+                        name: 'Create New Offer',
+                        endpoint: '/new',
+                        method: 'POST',
+                        req_data: {
+                            "title": "Get 50% Off",
+                            "description": "Get 50% off on all products on this diwali sale.",
+                            "imageurl": "https://image.shutterstock.com/image-vector/discount-banner-shape-special-offer-260nw-1467549638.jpg",
+                            "targetlink": "https://parshvasoni.netlify.app/",
+                            "startdate": "2022-09-13",
+                            "enddate": "2022-10-13"
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Offer created successfully.",
+                            "data": {
+                                "title": "get 50% off",
+                                "description": "get 50% off on all products on this diwali sale.",
+                                "imageurl": "https://image.shutterstock.com/image-vector/discount-banner-shape-special-offer-260nw-1467549638.jpg",
+                                "targetlink": "https://parshvasoni.netlify.app/",
+                                "startdate": "2022-09-13T00:00:00.000Z",
+                                "enddate": "2022-10-13T00:00:00.000Z",
+                                "_id": "63202f77550b1b703aacb85a",
+                                "createdAt": "2022-09-13T07:21:27.503Z",
+                                "updatedAt": "2022-09-13T07:21:27.503Z",
+                                "__v": 0
+                            }
+                        }
+                    },
+                    {
+                        name: 'Update Offers',
+                        endpoint: '/63202f77550b1b703aacb85a',
+                        method: 'PATCH',
+                        req_data: {
+                            "title": "Get 60% Off",
+                            "description": "Get 60% off on this navratri sale",
+                            "imageurl": "https://image.shutterstock.com/image-vector/discount-banner-shape-special-offer-260nw-1467549638.jpg             ",
+                            "targetlink": "https://parshvasoni.netlify.app/",
+                            "startdate": "2022-09-13T12:54:39.785Z"
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Offer Updated successfully.",
+                            "data": {
+                                "_id": "63202f77550b1b703aacb85a",
+                                "title": "get 60% off",
+                                "description": "get 60% off on this navratri sale",
+                                "imageurl": "https://image.shutterstock.com/image-vector/discount-banner-shape-special-offer-260nw-1467549638.jpg",
+                                "targetlink": "https://parshvasoni.netlify.app/",
+                                "startdate": "2022-09-13T12:54:39.785Z",
+                                "enddate": "2022-10-13T00:00:00.000Z",
+                                "createdAt": "2022-09-13T07:21:27.503Z",
+                                "updatedAt": "2022-09-13T07:30:50.731Z",
+                                "__v": 0
+                            }
+                        }
+                    },
+                    {
+                        name: 'Get All Offers',
+                        endpoint: '/all',
+                        method: 'GET',
+                        req_data: {
+
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Offers retrieved successfully.",
+                            "data": [
+                                {
+                                    "_id": "62a0da54478a89bc8017d704",
+                                    "title": "get amazon vouchers",
+                                    "description": "now get 20% off and amazon vouchers on each purchase of gold items.",
+                                    "imageurl": "https://image.shutterstock.com/image-vector/discount-banner-shape-special-offer-260nw-1467549638.jpg",
+                                    "targetlink": "https://wrapify-dev.netlify.app/",
+                                    "startdate": "2022-06-08T17:19:49.305Z",
+                                    "enddate": "2022-07-08T17:20:20.735Z",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "63202f77550b1b703aacb85a",
+                                    "title": "get 60% off",
+                                    "description": "get 60% off on this navratri sale",
+                                    "imageurl": "https://image.shutterstock.com/image-vector/discount-banner-shape-special-offer-260nw-1467549638.jpg",
+                                    "targetlink": "https://parshvasoni.netlify.app/",
+                                    "startdate": "2022-09-13T12:54:39.785Z",
+                                    "enddate": "2022-10-13T00:00:00.000Z",
+                                    "createdAt": "2022-09-13T07:21:27.503Z",
+                                    "updatedAt": "2022-09-13T07:30:50.731Z",
+                                    "__v": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        name: 'Delete Offer',
+                        endpoint: '/62a0da54478a89bc8017d704',
+                        method: 'DELETE',
+                        req_data: {
+
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Offer deleted successfully.",
+                            "data": null
+                        }
+                    }
+                ]
+            },
+            product_category: {
+                description: "This route returns all the product categories created by admin. Following are some hit-points to hit.",
+                path: "/categories",
+                options: [
+                    {
+                        name: 'Create Category',
+                        endpoint: '/new',
+                        method: 'POST',
+                        req_data: {
+                            "name": "Payal"
+                        },
+                        res_data: {
+                            "success": 0,
+                            "message": "Successfully created new product category.",
+                            "data": {
+                                "name": "payal",
+                                "_id": "63203417550b1b703aacb861",
+                                "createdAt": "2022-09-13T07:41:11.634Z",
+                                "updatedAt": "2022-09-13T07:41:11.634Z",
+                                "__v": 0
+                            }
+                        }
+                    },
+                    {
+                        name: 'Update Category',
+                        endpoint: '/63203417550b1b703aacb861',
+                        method: 'PATCH',
+                        req_data: {
+                            "name": "Gold Payals"
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Product Category updated successfully.",
+                            "data": {
+                                "name": "gold payals",
+                                "_id": "63203417550b1b703aacb861",
+                                "createdAt": "2022-09-13T07:41:11.634Z",
+                                "updatedAt": "2022-09-13T07:46:31.634Z",
+                                "__v": 0
+                            }
+                        }
+                    },
+                    {
+                        name: 'Get All Categories',
+                        endpoint: '/all',
+                        method: 'GET',
+                        req_data: {
+
+                        },
+                        res_data: {
+                            "success": 1,
+                            "message": "Product Categories Retrieved Successfully.",
+                            "data": [
+                                {
+                                    "_id": "62921bd2f078d7dd2cb92cf0",
+                                    "name": "general",
+                                    "__v": 0,
+                                    "updatedAt": "2022-07-04T10:10:26.178Z"
+                                },
+                                {
+                                    "_id": "62921bdff078d7dd2cb92cf2",
+                                    "name": "earrings",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921beef078d7dd2cb92cf4",
+                                    "name": "pendants",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921c0cf078d7dd2cb92cf6",
+                                    "name": "rings",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921c14f078d7dd2cb92cf8",
+                                    "name": "mangalsutra",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921c1bf078d7dd2cb92cfa",
+                                    "name": "chain",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921c23f078d7dd2cb92cfc",
+                                    "name": "necklaces",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921c2cf078d7dd2cb92cfe",
+                                    "name": "nose pin",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921c35f078d7dd2cb92d00",
+                                    "name": "couple rings",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921c7cf078d7dd2cb92d02",
+                                    "name": "bangles",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921c8ef078d7dd2cb92d04",
+                                    "name": "bracelets",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921c9bf078d7dd2cb92d06",
+                                    "name": "gold coins",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921ceaf078d7dd2cb92d08",
+                                    "name": "silver coins",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921cfaf078d7dd2cb92d0a",
+                                    "name": "toe rings",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921d6af078d7dd2cb92d0c",
+                                    "name": "men's kada",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62921d78f078d7dd2cb92d0e",
+                                    "name": "men's bands",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "62c2bbdb7d4045ed578be670",
+                                    "name": "bali",
+                                    "createdAt": "2022-07-04T10:07:23.406Z",
+                                    "updatedAt": "2022-07-04T10:07:23.406Z",
+                                    "__v": 0
+                                },
+                                {
+                                    "_id": "63203417550b1b703aacb861",
+                                    "name": "gold payals",
+                                    "createdAt": "2022-09-13T07:41:11.634Z",
+                                    "updatedAt": "2022-09-13T07:46:37.356Z",
+                                    "__v": 0
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+
+        }
+        let curr = {
+            enpoint: 'https://testapi.com',
+            schema: api_data.products
+        };
+        function onLoad() {
+            setEndpoint(curr.enpoint + "/products" + api_data.products.options[0].endpoint);
+            setEndpointArray(api_data.products);
+            setDescription(api_data.products.description);
+            setMethod(api_data.products.options[0].method);
+            setReqBody(api_data.products.options[0].req_data);
+            setResBody(api_data.products.options[0].res_data);
+            document.getElementById("select_endpoint_id").value = "products";
+        }
+        function setDescription(val) {
+            document.getElementById("description").innerText = val;
+        }
+        function setEndpoint(val) {
+            document.getElementById("endpoint").innerText = val;
+        }
+        function setMethod(val) {
+            document.getElementById("method").innerText = val;
+        }
+        function setResBody(val) {
+            document.getElementById("res_content").innerHTML = `<pre>${JSON.stringify(val, null, 4)}</pre>`;
+        }
+        function setReqBody(val) {
+            document.getElementById("req_content").innerHTML = `<pre>${JSON.stringify(val, null, 4)}</pre>`;
+        }
+
+        function updateContent(index) {
+            console.log(index, curr)
+
+            setEndpoint(curr.enpoint + curr.schema.path + curr.schema.options[index].endpoint);
+            setMethod(curr.schema.options[index].method);
+            setReqBody(curr.schema.options[index].req_data);
+            setResBody(curr.schema.options[index].res_data)
+        }
+
+        function setEndpointArray(val) {
+            let str = ``;
+            for (let i = 0; i < val.options.length; i++) {
+                str += `<div class="array_childs" onclick="updateContent(${i})"><span style="background-color:grey; border-radius:6px;padding:5px;">${val.options[i].method}</span><p style="margin-top:6px">${val.options[i].name}</p></div>`;
+            }
+            document.getElementById("endpoint_array_id").innerHTML = str;
+        }
+        function onChangeSelect(value) {
+            setEndpoint("");
+            setReqBody({});
+            setResBody({});
+            setMethod("...")
+
+            switch (value) {
+                case 'users':
+                    console.log(api_data.users);
+                    curr.schema = api_data.users
+                    setEndpointArray(api_data.users);
+                    setDescription(api_data.users.description)
+                    break;
+                case 'products':
+                    console.log(api_data.products);
+                    curr.schema = api_data.products
+                    setEndpointArray(api_data.products);
+                    setDescription(api_data.products.description)
+                    break;
+                case 'product_category':
+                    console.log(api_data.product_category);
+                    curr.schema = api_data.product_category
+                    setEndpointArray(api_data.product_category);
+                    setDescription(api_data.product_category.description)
+                    break;
+                case 'offers':
+                    console.log(api_data.offers);
+                    curr.schema = api_data.offers
+                    setEndpointArray(api_data.offers);
+                    setDescription(api_data.offers.description)
+                    break;
+                default:
+                    console.log(api_data.products)
+            }
+        }
+    </script>
+</head>
+
+<body onload="onLoad()">
+    <div class="box">
+        <center>
+            <h1 style="font-family:consolas">RESTful API With Enhanced Security</h1>
+        </center>
+        <div class="data_container">
+            <div class="endpoint_container">
+                <span>Endpoint : </span>
+                <p id="endpoint"></p>
+            </div>
+            <div class="enpoint_data_container">
+                <div style="display: flex;">
+                    <span>Method : </span>
+                    <p id="method"
+                        style="background-color: grey; margin-left: 10px; border-radius: 5px; padding: 5px; position: relative; top: -4px;">
+                    </p>
+                </div>
+                <div class="req_res_container">
+                    <div class="req">
+                        <h4 style="text-align: center;">Request Body</h4>
+                        <div class="content" id="req_content">
+
+                        </div>
+                    </div>
+                    <div class="res">
+                        <h4 style="text-align: center;">Response Body</h4>
+                        <div class="content" id="res_content">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item1">
+            <p style="text-align: center;">Select Endpoint :
+                <select style="background-color: tranparent;" id="select_endpoint_id"
+                    onchange="onChangeSelect(this.value)">
+                    <option value="users">/users</option>
+                    <option value="offers">/offers</option>
+                    <option value="product_category">/category</option>
+                    <option value="products">/products</option>
+                </select>
+            </p>
+            <p id="description" style="font-size:14px;margin-top: 15px;"></p>
+            <div class="content enpoint_array" id="endpoint_array_id">
+
+            </div>
+        </div>
+
+        <a id="b2" href="https://github.com/ParshvaSoni/"><button id="btn"
+                style="position: absolute; font-size:17px;color:white; padding:5px; width:90px;right:200px;bottom:12px;background-color:black; border:1px solid white;">Visit<button></a>
+    </div>
+    <center>
+        <button style="width:80px;position:relative;top:-30px;background-color:transparent;color:white;height:28px;"
+            onclick="location.href='index.html'" type="button">Home</button>
+    </center>
+</body>
+</head>
