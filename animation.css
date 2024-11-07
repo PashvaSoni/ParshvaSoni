@@ -1,0 +1,22 @@
+/* Apply continuous pulsing animation to all buttons and input[type="button"] */
+button, input[type="button"] {
+    animation: pulse 1s ease-in-out infinite; /* Continuous pulsing animation */
+    transition: transform 0.2s ease-in-out; /* Smooth scaling on hover */
+  }
+  
+  /* Define the pulse animation */
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1); /* Normal size */
+    }
+    50% {
+      transform: scale(1.05); /* Slightly enlarged at midpoint */
+    }
+  }
+  
+  /* Optional: Enhance the hover effect */
+  button:hover, input[type="button"]:hover {
+    transform: scale(1.1); /* Extra scale on hover */
+    cursor: pointer;
+  }
+  
